@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="WpfDemosCommonCode.Imaging.DocumentLayoutSettingsEditorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Imaging="clr-namespace:WpfDemosCommonCode.Imaging"
+             mc:Ignorable="d" Height="258.538" Width="318.577">
+    <Grid>
+        <TabControl>
+            <TabItem Header="All pages">
+                <Imaging:PageLayoutSettingsControl x:Name="allPagesLayoutSettingsControl"/>
+            </TabItem>
+            <TabItem Header="Even pages">
+                <Imaging:PageLayoutSettingsControl x:Name="evenPagesLayoutSettingsControl"/>
+            </TabItem>
+            <TabItem Header="Odd pages">
+                <Imaging:PageLayoutSettingsControl x:Name="oddPagesLayoutSettingsControl"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

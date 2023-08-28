@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="WpfDemosCommonCode.Imaging.XlsxPageLayoutSettingsTypeEditorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfDemosCommonCode.Imaging"
+             mc:Ignorable="d" 
+             MinHeight="76" MinWidth="220" Height="84" Width="220">
+    <StackPanel Orientation="Vertical">
+        <CheckBox Margin="0,0,0,2" Name="useWorksheetWidthAsPageWidthCheckBox" Checked="useWorksheetWidthAsPageWidthCheckBox_CheckedChanged" Unchecked="useWorksheetWidthAsPageWidthCheckBox_CheckedChanged" >Use worksheet width as page width</CheckBox>
+        <CheckBox Margin="0,0,0,2" Name="useWorksheetHeightAsPageHeightCheckBox" Checked="useWorksheetHeightAsPageHeightCheckBox_CheckedChanged" Unchecked="useWorksheetHeightAsPageHeightCheckBox_CheckedChanged" >Use worksheet height as page height</CheckBox>
+        <CheckBox Margin="0,0,0,2" Name="usePrintAreaCheckBox">Use print area</CheckBox>
+        <CheckBox Margin="0,0,0,2" Name="usePageMarginCheckBox">Use page margin</CheckBox>
+        <CheckBox Name="usePageScaleCheckBox">Use page scale</CheckBox>
+    </StackPanel>
+</UserControl>

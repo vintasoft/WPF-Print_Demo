@@ -1,0 +1,170 @@
+﻿<Window x:Class="WpfPrintDemo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="clr-namespace:WpfPrintDemo"
+    xmlns:vsui="clr-namespace:Vintasoft.Imaging.Wpf.UI;assembly=Vintasoft.Imaging.Wpf.UI"
+    xmlns:vswaui="clr-namespace:Vintasoft.Imaging.Annotation.Wpf.UI;assembly=Vintasoft.Imaging.Annotation.Wpf.UI"
+    xmlns:uc="clr-namespace:WpfDemosCommonCode.CustomControls"
+    Title="VintaSoft WPF Print Demo" Height="602" Width="916" MinHeight="460" MinWidth="916" Background="#FFF0F0F0"
+    WindowStartupLocation="CenterScreen"
+    Closing="Window_Closing">
+    <Window.Resources>
+        <Style TargetType="vsui:ThumbnailImageItem" x:Key="PreviewItemStyle">
+            <Setter Property="Border">
+                <Setter.Value>
+                    <Pen Brush="#FF000000" Thickness="1"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="ThumbnailPadding" Value="0" />
+            <Setter Property="ThumbnailImagePadding" Value="1" />
+            <Setter Property="ThumbnailForeground">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="0">
+                        <GradientStop Color="#30000000" Offset="0.0" />
+                        <GradientStop Color="#D0000000" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ThumbnailBackground" Value="#FFFFFFFF" />
+        </Style>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding x:Name="openCommandBinding" Command="{x:Static cc:MainWindow._openCommand}" Executed="openImageMenuItem_Click" CanExecute="openCommandBinding_CanExecute" />
+        <CommandBinding x:Name="addCommandBinding" Command="{x:Static cc:MainWindow._addCommand}" Executed="addImagesMenuItem_Click" CanExecute="addCommandBinding_CanExecute" />
+        <CommandBinding x:Name="printCommandBinding" Command="{x:Static cc:MainWindow._printCommand}" Executed="printMenuItem_Click" CanExecute="printCommandBinding_CanExecute" />
+        <CommandBinding x:Name="exitCommandBinding" Command="{x:Static cc:MainWindow._exitCommand}" Executed="exitMenuItem_Click" CanExecute="exitCommandBinding_CanExecute" />
+        <CommandBinding Command="{x:Static cc:MainWindow._aboutCommand}" Executed="aboutMenuItem_Click" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="{x:Static cc:MainWindow._openCommand}" Modifiers="CTRL" Key="O" />
+        <KeyBinding Command="{x:Static cc:MainWindow._addCommand}" Modifiers="CTRL+SHIFT" Key="O" />
+        <KeyBinding Command="{x:Static cc:MainWindow._printCommand}" Modifiers="CTRL" Key="P" />
+        <KeyBinding Command="{x:Static cc:MainWindow._exitCommand}" Modifiers="CTRL" Key="X" />
+        <KeyBinding Command="{x:Static cc:MainWindow._aboutCommand}"  Key="F1" />
+    </Window.InputBindings>
+    <Grid>
+        <DockPanel VerticalAlignment="Stretch">
+            <DockPanel VerticalAlignment="Top" DockPanel.Dock="Bottom" Height="26">
+                <DockPanel HorizontalAlignment="Left">
+                    <Label Name="actionLabel" Visibility="Collapsed">StatusLabel</Label>
+                    <ProgressBar Name="printingProgressBar" Minimum="0" Maximum="100" Width="100" Margin="4" Visibility="Collapsed"/>
+                </DockPanel>
+            </DockPanel>
+            <DockPanel Height="25" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <Menu Name="menu1">
+                    <MenuItem Header="File" Name="fileMenuItem">
+                        <MenuItem Header="Open... (Ctrl+ O)" Name="openImageMenuItem" Click="openImageMenuItem_Click"/>
+                        <MenuItem Header="Add... (Ctrl+ Shift+ O)" Name="addImagesMenuItem" Click="addImagesMenuItem_Click"/>
+                        <MenuItem Header="Layout Settings..." Name="documentLayoutSettingsMenuItem">
+                            <MenuItem Header="DOCX..." Name="docxLayoutSettingsMenuItem" Click="docxLayoutSettingsMenuItem_Click"/>
+                            <MenuItem Header="XLSX..." Name="xlsxLayoutSettingsMenuItem" Click="xlsxLayoutSettingsMenuItem_Click"/>
+                        </MenuItem>
+                        <Separator/>
+                        <MenuItem Header="Page Settings..." Name="pageSettingsMenuItem" Click="pageSettingsMenuItem_Click"/>
+                        <MenuItem Header="Print Color Management..." Name="printColorManagementMenuItem" Click="printColorManagementMenuItem_Click"/>
+                        <MenuItem Header="Print... (Ctrl+ P)" Name="printMenuItem" Click="printMenuItem_Click"/>
+                        <Separator/>
+                        <MenuItem Header="Exit (Ctrl+ X)" Name="exitMenuItem" Click="exitMenuItem_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="View" Name="viewMenuItem">
+                        <MenuItem Header="Color Management..." Name="colorManagementMenuItem" Click="colorManagementMenuItem_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="Page" Name="pageMenuItem">
+                        <MenuItem Header="Show Page Header" Name="showPageHeaderMenuItem" Click="showPageHeaderMenuItem_Click"/>
+                        <MenuItem Header="Show Page Footer" Name="showPageFooterMenuItem" Click="showPageFooterMenuItem_Click"/>
+                        <MenuItem Header="Show Image Header" Name="showImageHeaderMenuItem" Click="showImageHeaderMenuItem_Click"/>
+                        <MenuItem Header="Show Image Footer" Name="showImageFooterMenuItem" Click="showImageFooterMenuItem_Click"/>
+                        <Separator/>
+                        <MenuItem Header="Show Page Area (Blue dotted)" Name="showPageAreaMenuItem" Click="showPageAreaMenuItem_Click"/>
+                        <MenuItem Header="Show Image Area (Red)" Name="showImageAreaMenuItem" Click="showImageAreaMenuItem_Click"/>
+                        <MenuItem Header="Show Image Rect (Green)" Name="showImageRectMenuItem" Click="showImageRectMenuItem_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="Help">
+                        <MenuItem Header="About... (F1)" Click="aboutMenuItem_Click"/>
+                    </MenuItem>
+                </Menu>
+            </DockPanel>
+            <DockPanel Name="panel1" Height="120" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="70*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="170"/>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="190"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Scale mode</TextBlock>
+                    <ComboBox Grid.Column="1" Grid.Row="0" Name="printScaleModeComboBox" Height="25" Width="130" SelectionChanged="printScaleModeComboBox_SelectionChanged"/>
+                    <CheckBox Grid.Column="2" Grid.Row="0" Name="centerImageOnPageCheckBox" VerticalAlignment="Center" Margin="10" Checked="centerImageOnPageCheckBox_CheckedChanged" Unchecked="centerImageOnPageCheckBox_CheckedChanged">
+                        Center image on page
+                    </CheckBox>
+                    <CheckBox Grid.Column="3" Grid.Row="0" Name="printImageWithAnnotationsCheckBox" IsChecked="False" VerticalAlignment="Center" Margin="10" Checked="printImageWithAnnotationsCheckBox_CheckedChanged" Unchecked="printImageWithAnnotationsCheckBox_CheckedChanged">
+                        Print with annotations
+                    </CheckBox>
+                    <TextBlock Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                        Zoom
+                    </TextBlock>
+                    <Slider Grid.Column="5" Grid.Row="0"  Grid.ColumnSpan="2" Name="zoomSlider" TickPlacement="BottomRight" TickFrequency="50" VerticalAlignment="Center" Margin="10" Minimum="10" Maximum="1000" Value="100" ValueChanged="zoomTrackBar_ValueChanged"/>
+                    <DockPanel Grid.Column="6" Grid.Row="1">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,10,5,0">Page</TextBlock>
+                        <uc:NumericUpDown x:Name="pageIndexNumericUpDown" Width="60" VerticalAlignment="Center" HorizontalAlignment="Left" Minimum="0" Maximum="100" Value="0" Margin="5,10,5,0" ValueChanged="pageIndexNumericUpDown_ValueChanged"/>
+                    </DockPanel>
+                    <GroupBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Header="Visible pages" Margin="4,4,4,4">
+                        <DockPanel>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10">Columns</TextBlock>
+                            <uc:NumericUpDown x:Name="columnsNumericUpDown" Width="50" VerticalAlignment="Center" HorizontalAlignment="Left" Minimum="1" Maximum="10" Value="1" ValueChanged="columnsNumericUpDown_ValueChanged"/>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10">Rows</TextBlock>
+                            <uc:NumericUpDown x:Name="rowsNumericUpDown" Width="50" VerticalAlignment="Center" HorizontalAlignment="Left" Minimum="1" Maximum="10" Value="1" ValueChanged="rowsNumericUpDown_ValueChanged"/>
+                        </DockPanel>
+                    </GroupBox>
+                    <GroupBox Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4" Name="imagesPerPageGroupBox" Header="Mosaic printing parameters" Margin="4,4,4,4">
+                        <DockPanel>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Margin="10,0,10,0">Columns on page</TextBlock>
+                            <uc:NumericUpDown x:Name="columnsOnPageNumericUpDown" Width="50" VerticalAlignment="Center" HorizontalAlignment="Left" Minimum="1" Maximum="10" Value="1" ValueChanged="columnsOnPageNumericUpDown_ValueChanged"/>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Margin="10,0,10,0">Rows on page</TextBlock>
+                            <uc:NumericUpDown x:Name="rowsOnPageNumericUpDown" Width="50" VerticalAlignment="Center" HorizontalAlignment="Left" Minimum="1" Maximum="10" Value="1" ValueChanged="rowsOnPageNumericUpDown_ValueChanged"/>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Margin="10,0,10,0">Distance between images</TextBlock>
+                            <uc:NumericUpDown x:Name="distanceBetweenImagesNumericUpDown" Width="60" VerticalAlignment="Center" HorizontalAlignment="Left" Minimum="0" Maximum="300" Value="10" ValueChanged="distanceBetweenImagesNumericUpDown_ValueChanged"/>
+                        </DockPanel>
+                    </GroupBox>
+                </Grid>
+            </DockPanel>
+            <DockPanel VerticalAlignment="Stretch">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <vswaui:WpfAnnotatedThumbnailViewer 
+                        Grid.Column ="0" 
+                        Name="thumbnailViewer1" 
+                        GenerateOnlyVisibleThumbnails="True" 
+                        ThumbnailFlowStyle="WrappedRows"
+                        ThumbnailRenderingThreadCount="2"
+                        Margin="0,0,5,0"
+                        FocusedIndexChanged="thumbnailViewer1_FocusedIndexChanged">
+                    </vswaui:WpfAnnotatedThumbnailViewer>
+                    <GridSplitter Grid.Column ="0" Background="LightBlue" Width="5" HorizontalAlignment="Right" VerticalAlignment="Stretch"/>
+                    <vswaui:WpfAnnotatedThumbnailViewer
+                        ThumbnailContainerStyle="{StaticResource PreviewItemStyle}"
+                        Grid.Column="1"
+                        Name="thumbnailViewerPreview" 
+                        Background="#FFEEEEEE"
+                        GenerateOnlyVisibleThumbnails="True" 
+                        ThumbnailFlowStyle="FixedColumns"
+                        ThumbnailRenderingThreadCount="2"
+                        Margin="0,0,5,0"
+                        AllowDrag="False"
+                        AllowDrop="False"/>
+                </Grid>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>

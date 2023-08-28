@@ -1,0 +1,36 @@
+﻿<Imaging:DocumentLayoutSettingsDialog 
+    x:Class="WpfDemosCommonCode.Imaging.DocxLayoutSettingsDialog" 
+    xmlns:Imaging="clr-namespace:WpfDemosCommonCode.Imaging" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+    mc:Ignorable="d"
+    Title="DOCX Layout Settings" Height="378.453" Width="353.013"  WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow" ResizeMode="NoResize">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="167"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox x:Name="settingsGroupBox" Grid.ColumnSpan="2" Header="                                                ">
+            <Grid Margin="0,0,1,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <CheckBox x:Name="showHiddenContentCheckBox" Content="Show hidden content" Grid.Row="0" HorizontalAlignment="Left" Margin="0,9,0,6"/>
+                <Imaging:DocumentLayoutSettingsEditorControl Grid.Row="1" x:Name="documentLayoutSettingsEditorControl1" Margin="4,9,4,-1" Height="Auto" Width="Auto"/>
+
+            </Grid>
+        </GroupBox>
+        <CheckBox x:Name="defaultSettingsCheckBox" Content="Use default layout settings" IsChecked="True" Margin="6,2,0,0" Height="17" VerticalAlignment="Top" Checked="defaultSettingsCheckBox_CheckedChanged" Unchecked="defaultSettingsCheckBox_CheckedChanged"/>
+        <Button Content="OK" x:Name="okButton" IsDefault="True" Grid.Column="1" Margin="0,0,87,5" Grid.Row="1" Click="okButton_Click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75"/>
+        <Button Content="Cancel" x:Name="cancelButton" IsCancel="True" Grid.Column="1" Margin="0,0,7,5" Grid.Row="1" Click="cancelButton_Click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75"/>
+    </Grid>
+</Imaging:DocumentLayoutSettingsDialog>
