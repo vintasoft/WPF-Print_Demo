@@ -297,7 +297,7 @@ namespace WpfPrintDemo
         #region 'File' menu
 
         /// <summary>
-        /// Handles the Click event of OpenImageMenuItem object.
+        /// Handles the Click event of openImageMenuItem object.
         /// </summary>
         private void openImageMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -348,7 +348,7 @@ namespace WpfPrintDemo
         }
 
         /// <summary>
-        /// Handles the Click event of DocxLayoutSettingsMenuItem object.
+        /// Handles the Click event of docxLayoutSettingsMenuItem object.
         /// </summary>
         private void docxLayoutSettingsMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -356,7 +356,7 @@ namespace WpfPrintDemo
         }
 
         /// <summary>
-        /// Handles the Click event of XlsxLayoutSettingsMenuItem object.
+        /// Handles the Click event of xlsxLayoutSettingsMenuItem object.
         /// </summary>
         private void xlsxLayoutSettingsMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -498,7 +498,7 @@ namespace WpfPrintDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ShowPageAreaMenuItem object.
+        /// Handles the Click event of showPageAreaMenuItem object.
         /// </summary>
         private void showPageAreaMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -509,7 +509,7 @@ namespace WpfPrintDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ShowImageAreaMenuItem object.
+        /// Handles the Click event of showImageAreaMenuItem object.
         /// </summary>
         private void showImageAreaMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -520,7 +520,7 @@ namespace WpfPrintDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ShowImageRectMenuItem object.
+        /// Handles the Click event of showImageRectMenuItem object.
         /// </summary>
         private void showImageRectMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -536,7 +536,7 @@ namespace WpfPrintDemo
         #region 'Help' menu
 
         /// <summary>
-        /// Handles the Click event of AboutMenuItem object.
+        /// Handles the Click event of aboutMenuItem object.
         /// </summary>
         private void aboutMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -659,7 +659,7 @@ namespace WpfPrintDemo
         }
 
         /// <summary>
-        /// Handles the FocusedIndexChanged event of ThumbnailViewer1 object.
+        /// Handles the FocusedIndexChanged event of thumbnailViewer1 object.
         /// </summary>
         private void thumbnailViewer1_FocusedIndexChanged(object sender, PropertyChangedEventArgs<int> e)
         {
@@ -689,7 +689,7 @@ namespace WpfPrintDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of PageIndexNumericUpDown object.
+        /// Handles the ValueChanged event of pageIndexNumericUpDown object.
         /// </summary>
         private void pageIndexNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -697,7 +697,7 @@ namespace WpfPrintDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of ColumnsNumericUpDown object.
+        /// Handles the ValueChanged event of columnsNumericUpDown object.
         /// </summary>
         private void columnsNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -705,7 +705,7 @@ namespace WpfPrintDemo
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of RowsNumericUpDown object.
+        /// Handles the ValueChanged event of rowsNumericUpDown object.
         /// </summary>
         private void rowsNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -758,7 +758,7 @@ namespace WpfPrintDemo
         #region Hot keys
 
         /// <summary>
-        /// Handles the CanExecute event of OpenCommandBinding object.
+        /// Handles the CanExecute event of openCommandBinding object.
         /// </summary>
         private void openCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -766,7 +766,7 @@ namespace WpfPrintDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of AddCommandBinding object.
+        /// Handles the CanExecute event of addCommandBinding object.
         /// </summary>
         private void addCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -774,7 +774,7 @@ namespace WpfPrintDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of PrintCommandBinding object.
+        /// Handles the CanExecute event of printCommandBinding object.
         /// </summary>
         private void printCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -782,7 +782,7 @@ namespace WpfPrintDemo
         }
 
         /// <summary>
-        /// Handles the CanExecute event of ExitCommandBinding object.
+        /// Handles the CanExecute event of exitCommandBinding object.
         /// </summary>
         private void exitCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {

@@ -107,7 +107,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of OkBtn object.
+        /// Handles the Click event of okBtn object.
         /// </summary>
         private void okBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -126,7 +126,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of ClearPagePaddingButton object.
+        /// Handles the Click event of clearPagePaddingButton object.
         /// </summary>
         private void clearPagePaddingButton_Click(object sender, RoutedEventArgs e)
         {
@@ -137,7 +137,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of SetDefaultPagePaddingButton object.
+        /// Handles the Click event of setDefaultPagePaddingButton object.
         /// </summary>
         private void setDefaultPagePaddingButton_Click(object sender, RoutedEventArgs e)
         {
@@ -148,7 +148,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of ClearImagePaddingButton object.
+        /// Handles the Click event of clearImagePaddingButton object.
         /// </summary>
         private void clearImagePaddingButton_Click(object sender, RoutedEventArgs e)
         {
@@ -159,7 +159,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of SetDefaultImagePaddingButton object.
+        /// Handles the Click event of setDefaultImagePaddingButton object.
         /// </summary>
         private void setDefaultImagePaddingButton_Click(object sender, RoutedEventArgs e)
         {

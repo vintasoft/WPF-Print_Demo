@@ -73,7 +73,7 @@ namespace WpfDemosCommonCode.Imaging
         #region UI
 
         /// <summary>
-        /// Handles the CheckedChanged event of UseWorksheetWidthAsPageWidthCheckBox object.
+        /// Handles the CheckedChanged event of useWorksheetWidthAsPageWidthCheckBox object.
         /// </summary>
         private void useWorksheetWidthAsPageWidthCheckBox_CheckedChanged(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -81,7 +81,7 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of UseWorksheetHeightAsPageHeightCheckBox object.
+        /// Handles the CheckedChanged event of useWorksheetHeightAsPageHeightCheckBox object.
         /// </summary>
         private void useWorksheetHeightAsPageHeightCheckBox_CheckedChanged(object sender, System.Windows.RoutedEventArgs e)
         {
