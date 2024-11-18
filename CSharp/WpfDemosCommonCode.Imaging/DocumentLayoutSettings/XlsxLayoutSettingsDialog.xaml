@@ -5,8 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:CustomControls="clr-namespace:WpfDemosCommonCode.CustomControls"
     mc:Ignorable="d"
-    Title="XLSX Layout Settings" Height="475" Width="346.346"  WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow" ResizeMode="NoResize">
+    Title="XLSX Layout Settings" Height="495" Width="346.346"  WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow" ResizeMode="NoResize">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -22,13 +23,17 @@
             <Grid Margin="0,2,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="88"/>
-                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Imaging:XlsxPageLayoutSettingsTypeEditorControl Grid.Row="0" x:Name="XlsxPageLayoutSettingsTypeEditorControl1" Width="Auto" Margin="0,3,0,0" />
                 <Imaging:DocumentLayoutSettingsEditorControl Grid.Row="2" x:Name="documentLayoutSettingsEditorControl1" Height="Auto"/>
                 <CheckBox x:Name="showHiddenSheetsCheckBox" Content="Show hidden worksheets" HorizontalAlignment="Left" Margin="0,1,0,0" Grid.Row="1" VerticalAlignment="Top"/>
                 <CheckBox x:Name="showHiddenGraphicsCheckBox" Content="Show hidden graphics" HorizontalAlignment="Left" Margin="0,18,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                <StackPanel Margin="0,35,0,0" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Top" Orientation="Horizontal">
+                    <CheckBox x:Name="worksheetIndexCheckBox" Content="Worksheet index" VerticalAlignment="Center" Checked="worksheetIndexCheckBox_CheckedChanged" Unchecked="worksheetIndexCheckBox_CheckedChanged" />
+                    <CustomControls:NumericUpDown IsEnabled="False" x:Name="worksheetIndexNumericUpDown" Margin="28,0,0,0" Width="174" Maximum="999999" />
+                </StackPanel>
             </Grid>
         </GroupBox>
         <CheckBox x:Name="defaultSettingsCheckBox" Content="Use default layout settings" IsChecked="True" Margin="6,2,0,0" Height="17" VerticalAlignment="Top" Checked="defaultSettingsCheckBox_CheckedChanged" Unchecked="defaultSettingsCheckBox_CheckedChanged"/>

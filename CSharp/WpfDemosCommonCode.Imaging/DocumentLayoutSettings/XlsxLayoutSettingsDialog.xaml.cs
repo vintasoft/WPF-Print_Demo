@@ -62,6 +62,12 @@ namespace WpfDemosCommonCode.Imaging
                 XlsxPageLayoutSettingsTypeEditorControl1.Settings = settings.PageLayoutSettingsType;
                 showHiddenSheetsCheckBox.IsChecked = settings.ShowHiddenSheets;
                 showHiddenGraphicsCheckBox.IsChecked = settings.ShowHiddenGraphics;
+
+                if (settings.WorksheetIndex != null)
+                {
+                    worksheetIndexCheckBox.IsChecked = true;
+                    worksheetIndexNumericUpDown.Value = settings.WorksheetIndex.Value;
+                }
 #endif
 
                 // pass the settings to control
@@ -108,6 +114,14 @@ namespace WpfDemosCommonCode.Imaging
         }
 
         /// <summary>
+        /// Handles the CheckedChanged event of worksheetIndexCheckBox object.
+        /// </summary>
+        private void worksheetIndexCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
+        {
+            worksheetIndexNumericUpDown.IsEnabled = worksheetIndexCheckBox.IsChecked.Value;
+        }
+
+        /// <summary>
         /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, RoutedEventArgs e)
@@ -126,6 +140,11 @@ namespace WpfDemosCommonCode.Imaging
                 xlsxSettings.PageLayoutSettingsType = XlsxPageLayoutSettingsTypeEditorControl1.Settings;
                 xlsxSettings.ShowHiddenSheets = showHiddenSheetsCheckBox.IsChecked.Value;
                 xlsxSettings.ShowHiddenGraphics = showHiddenGraphicsCheckBox.IsChecked.Value;
+
+                if (worksheetIndexCheckBox.IsChecked == true)
+                    xlsxSettings.WorksheetIndex = (int)worksheetIndexNumericUpDown.Value;
+                else
+                    xlsxSettings.WorksheetIndex = null;
 #endif
             }
 

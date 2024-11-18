@@ -207,7 +207,9 @@ namespace WpfPrintDemo
             // specify that image collection of thumbnail viewer must handle layout settings requests
             _imageCollectionDocxLayoutSettingsManager = new ImageCollectionDocxLayoutSettingsManager(thumbnailViewer1.Images);
             _imageCollectionXlsxLayoutSettingsManager = new ImageCollectionXlsxLayoutSettingsManager(thumbnailViewer1.Images);
-#else
+#endif
+
+#if REMOVE_OFFICE_PLUGIN
             documentLayoutSettingsMenuItem.Visibility = Visibility.Collapsed;
 #endif
 
