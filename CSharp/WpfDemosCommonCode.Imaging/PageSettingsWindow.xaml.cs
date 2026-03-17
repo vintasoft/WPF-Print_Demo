@@ -3,7 +3,7 @@ using System.Windows;
 
 using Vintasoft.Imaging.Wpf.Print;
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A window that allows to view and edit page settings.

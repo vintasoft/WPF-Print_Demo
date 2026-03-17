@@ -3,7 +3,7 @@ using System.Windows;
 
 using Vintasoft.Imaging.Codecs.Decoders;
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A window that allows to view and edit XLSX document layout settings.

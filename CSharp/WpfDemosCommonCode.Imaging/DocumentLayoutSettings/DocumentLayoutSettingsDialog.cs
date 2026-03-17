@@ -4,7 +4,7 @@ using System.Windows;
 
 using Vintasoft.Imaging.Codecs.Decoders;
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// Provides a base class for dialog that allows to view and edit document layout settings.

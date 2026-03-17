@@ -1,7 +1,7 @@
-﻿<Window x:Class="WpfDemosCommonCode.Imaging.PageSettingsWindow"
+﻿<Window x:Class="WpfCommonCode.Imaging.PageSettingsWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:uc="clr-namespace:WpfDemosCommonCode.CustomControls"
+    xmlns:uc="clr-namespace:WpfCommonCode.CustomControls"
     Title="Page settings" Height="370" Width="570" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>

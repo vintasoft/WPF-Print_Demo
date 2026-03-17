@@ -1,7 +1,7 @@
 ﻿using Vintasoft.Imaging;
 using Vintasoft.Imaging.Codecs.Decoders;
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// Contains helper methods, which allow to manage XLSX document layout settings.

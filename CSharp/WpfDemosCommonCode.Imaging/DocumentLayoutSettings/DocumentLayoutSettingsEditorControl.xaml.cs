@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using Vintasoft.Imaging.Codecs.Decoders;
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// A control that allows to edit document layout settings.

@@ -4,7 +4,7 @@
     xmlns:cc="clr-namespace:WpfPrintDemo"
     xmlns:vsui="clr-namespace:Vintasoft.Imaging.Wpf.UI;assembly=Vintasoft.Imaging.Wpf.UI"
     xmlns:vswaui="clr-namespace:Vintasoft.Imaging.Annotation.Wpf.UI;assembly=Vintasoft.Imaging.Annotation.Wpf.UI"
-    xmlns:uc="clr-namespace:WpfDemosCommonCode.CustomControls"
+    xmlns:uc="clr-namespace:WpfCommonCode.CustomControls"
     Title="VintaSoft WPF Print Demo" Height="602" Width="916" MinHeight="460" MinWidth="916" Background="#FFF0F0F0"
     WindowStartupLocation="CenterScreen"
     Closing="Window_Closing">

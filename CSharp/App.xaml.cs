@@ -1,4 +1,4 @@
-using System.Windows;
+﻿using System.Windows;
 
 namespace WpfPrintDemo
 {
@@ -13,7 +13,7 @@ namespace WpfPrintDemo
         public App()
             : base()
         {
-            WpfDemosCommonCode.DemosTools.EnableLicenseExceptionDisplaying();
+            WpfCommonCode.DemosTools.EnableLicenseExceptionDisplaying();
         }
     }
 }

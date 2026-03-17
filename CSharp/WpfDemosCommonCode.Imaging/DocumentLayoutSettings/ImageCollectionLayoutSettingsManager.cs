@@ -4,7 +4,7 @@ using System.Windows;
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.Codecs.Decoders;
 
-namespace WpfDemosCommonCode.Imaging
+namespace WpfCommonCode.Imaging
 {
     /// <summary>
     /// Contains helper methods, which allow to manage the document layout settings.

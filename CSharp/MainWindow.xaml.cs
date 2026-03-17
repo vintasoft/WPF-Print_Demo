@@ -18,11 +18,11 @@ using Vintasoft.Imaging.Wpf;
 using Vintasoft.Imaging.Wpf.Print;
 using Vintasoft.Imaging.Wpf.UI;
 
-using WpfDemosCommonCode;
-using WpfDemosCommonCode.Imaging;
-using WpfDemosCommonCode.Imaging.Codecs;
+using WpfCommonCode;
+using WpfCommonCode.Imaging;
+using WpfCommonCode.Imaging.Codecs;
 #if !REMOVE_PDF_PLUGIN
-using WpfDemosCommonCode.Pdf;
+using WpfCommonCode.Pdf;
 #endif
 
 namespace WpfPrintDemo
