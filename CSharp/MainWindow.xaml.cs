@@ -139,6 +139,21 @@ namespace WpfPrintDemo
         #region Constructors
 
         /// <summary>
+        /// Initializes the <see cref="MainWindow"/> class.
+        /// </summary>
+        static MainWindow()
+        {
+            Jbig2AssemblyLoader.Load();
+            Jpeg2000AssemblyLoader.Load();
+            RawAssemblyLoader.Load();
+            DicomAssemblyLoader.Load();
+            DocxAssemblyLoader.Load();
+
+            // set CustomFontProgramsController for all opened documents
+            CustomFontProgramsController.SetDefaultFontProgramsController();
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
         /// </summary>
         public MainWindow()
@@ -147,12 +162,6 @@ namespace WpfPrintDemo
             Vintasoft.Imaging.ImagingGlobalSettings.Register("REG_USER", "REG_EMAIL", "EXPIRATION_DATE", "REG_CODE");
 
             InitializeComponent();
-
-            Jbig2AssemblyLoader.Load();
-            Jpeg2000AssemblyLoader.Load();
-            RawAssemblyLoader.Load();
-            DicomAssemblyLoader.Load();
-            DocxAssemblyLoader.Load();
 
             this.Title = _titlePrefix;
 
@@ -199,9 +208,6 @@ namespace WpfPrintDemo
             thumbnailViewer1.AnnotationDataController.AnnotationDataDeserializationException += new EventHandler<AnnotationDataDeserializationExceptionEventArgs>(AnnotationDataController_AnnotationDataDeserializationException);
 
             DocumentPasswordWindow.EnableAuthentication(thumbnailViewer1);
-
-            // set CustomFontProgramsController for all opened PDF documents
-            CustomFontProgramsController.SetDefaultFontProgramsController();
 
 #if !REMOVE_OFFICE_PLUGIN
             // specify that image collection of thumbnail viewer must handle layout settings requests
