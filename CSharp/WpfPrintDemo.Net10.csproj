@@ -13,7 +13,7 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>    
     <EnableDefaultItems>false</EnableDefaultItems>
-    <Version>15.1.9.1</Version>
+    <Version>15.2.0.1</Version>
     <AssemblyName>WpfPrintDemo</AssemblyName>
     <RootNamespace>WpfPrintDemo</RootNamespace>
     <StartupObject>WpfPrintDemo.App</StartupObject>
@@ -31,26 +31,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
-    <PackageReference Include="System.IO.Packaging" Version="10.0.0" />
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="10.0.0" />
+    <PackageReference Include="OpenMcdf" Version="3.1.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Vintasoft.Imaging" Version="15.1.9.1" />
-    <PackageReference Include="Vintasoft.Imaging.Gdi" Version="15.1.9.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="15.1.9.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Wpf.UI" Version="15.1.9.1" />
-    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="8.1.9.1" />
-    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="12.1.9.1" />
-    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="10.1.9.1" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="7.1.9.1" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="12.1.9.1" />
-    <PackageReference Include="Vintasoft.Imaging.RawCodec" Version="15.1.9.1" />
-    <PackageReference Include="Vintasoft.Imaging.UI" Version="15.1.9.1" />
-    <PackageReference Include="Vintasoft.Imaging.Wpf" Version="15.1.9.1" />
-    <PackageReference Include="Vintasoft.Imaging.Wpf.UI" Version="15.1.9.1" />
-    <PackageReference Include="Vintasoft.Shared" Version="4.6.3.1" />
+    <PackageReference Include="Vintasoft.Imaging" Version="15.2.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Gdi" Version="15.2.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.CadCodec" Version="15.2.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.EmailCodec" Version="15.2.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="15.2.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Wpf.UI" Version="15.2.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="8.2.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="12.2.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="10.1.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="7.2.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="12.2.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.RawCodec" Version="15.2.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.UI" Version="15.2.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Wpf" Version="15.2.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Wpf.UI" Version="15.2.0.1" />
+    <PackageReference Include="Vintasoft.Shared" Version="4.7.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -82,6 +82,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\DocxLayoutSettingsDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\EmailLayoutSettingsDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\HtmlLayoutSettingsDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -126,6 +134,8 @@
     </Compile>
     <Compile Include="WpfDemosCommonCode.Imaging\AssembliesLoader\DocxAssemblyLoader.cs">
     </Compile>
+    <Compile Include="WpfDemosCommonCode.Imaging\AssembliesLoader\EmailCodecAssemblyLoader.cs">
+    </Compile>
     <Compile Include="WpfDemosCommonCode.Imaging\AssembliesLoader\Jbig2AssemblyLoader.cs">
     </Compile>
     <Compile Include="WpfDemosCommonCode.Imaging\AssembliesLoader\Jpeg2000AssemblyLoader.cs">
@@ -150,11 +160,11 @@
     <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\DocxLayoutSettingsDialog.xaml.cs">
       <DependentUpon>DocxLayoutSettingsDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\ImageCollectionDocxLayoutSettingsManager.cs">
+    <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\EmailLayoutSettingsDialog.xaml.cs">
+      <DependentUpon>EmailLayoutSettingsDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\ImageCollectionLayoutSettingsManager.cs">
-    </Compile>
-    <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\ImageCollectionXlsxLayoutSettingsManager.cs">
+    <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\HtmlLayoutSettingsDialog.xaml.cs">
+      <DependentUpon>HtmlLayoutSettingsDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="WpfDemosCommonCode.Imaging\DocumentLayoutSettings\PageLayoutSettingsControl.xaml.cs">
       <DependentUpon>PageLayoutSettingsControl.xaml</DependentUpon>

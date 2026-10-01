@@ -1,5 +1,6 @@
-﻿using System.Windows;
-
+﻿using System;
+using System.Windows;
+using Vintasoft.Imaging;
 using Vintasoft.Imaging.Codecs.Decoders;
 
 namespace WpfCommonCode.Imaging
@@ -18,8 +19,15 @@ namespace WpfCommonCode.Imaging
         public DocxLayoutSettingsDialog()
         {
             InitializeComponent();
+        }
 
-            LayoutSettings = CreateDefaultLayoutSettings();
+        /// <summary>
+        /// Inititalizes new instance of <see cref="DocxLayoutSettingsDialog"/>.
+        /// </summary>
+        public DocxLayoutSettingsDialog(ImageCollection images)
+            : this()
+        {
+            LayoutSettingsManager = images.LayoutSettings;
         }
 
         #endregion
@@ -27,6 +35,17 @@ namespace WpfCommonCode.Imaging
 
 
         #region Properties
+
+        /// <summary>
+        /// Gets the name of the codec.
+        /// </summary>
+        public override string CodecName
+        {
+            get
+            {
+                return "Docx";
+            }
+        }
 
         /// <summary>
         /// Gets or sets the document layout settings.
@@ -68,27 +87,7 @@ namespace WpfCommonCode.Imaging
 
 
         #region Methods
-
-        #region PROTECTED
-
-        /// <summary>
-        /// Returns the default document layout settings.
-        /// </summary>
-        /// <returns>
-        /// Default document layout settings.
-        /// </returns>
-        protected override DocumentLayoutSettings CreateDefaultLayoutSettings()
-        {
-#if REMOVE_OFFICE_PLUGIN
-            return new DocumentLayoutSettings();
-#else
-            return new DocxDocumentLayoutSettings();
-#endif
-        }
-
-        #endregion
-
-
+       
         #region PRIVATE
 
         #region UI
@@ -120,7 +119,16 @@ namespace WpfCommonCode.Imaging
 #endif
             }
 
-            DialogResult = true;
+            try
+            {
+                LayoutSettingsManager[CodecName] = LayoutSettings;
+                DialogResult = true;
+            }
+            catch (Exception ex)
+            {
+                DemosTools.ShowErrorMessage(ex);
+                DialogResult = false;
+            }
         }
 
         /// <summary>

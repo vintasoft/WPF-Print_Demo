@@ -59,6 +59,8 @@
                         <MenuItem Header="Layout Settings..." Name="documentLayoutSettingsMenuItem">
                             <MenuItem Header="DOCX..." Name="docxLayoutSettingsMenuItem" Click="docxLayoutSettingsMenuItem_Click"/>
                             <MenuItem Header="XLSX..." Name="xlsxLayoutSettingsMenuItem" Click="xlsxLayoutSettingsMenuItem_Click"/>
+                            <MenuItem Header="HTML..." Name="htmlLayoutSettingsMenuItem" Click="htmlLayoutSettingsMenuItem_Click"/>
+                            <MenuItem Header="Email..." Name="emailLayoutSettingsMenuItem" Click="emailLayoutSettingsMenuItem_Click"/>
                         </MenuItem>
                         <Separator/>
                         <MenuItem Header="Page Settings..." Name="pageSettingsMenuItem" Click="pageSettingsMenuItem_Click"/>
